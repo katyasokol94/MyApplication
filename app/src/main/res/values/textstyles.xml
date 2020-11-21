@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance" parent="" />
+
+    <style name="TextAppearance.Regular">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="TextAppearance.Bold">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="TextAppearance.Regular.12">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextAppearance.Regular.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextAppearance.Regular.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextAppearance.Regular.18">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.Regular.20">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextAppearance.Bold.12">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextAppearance.Bold.13">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="TextAppearance.Bold.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextAppearance.Bold.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextAppearance.Bold.17">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextAppearance.Bold.18">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.Bold.20">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextAppearance.Bold.40">
+        <item name="android:textSize">40sp</item>
+    </style>
+
+</resources>

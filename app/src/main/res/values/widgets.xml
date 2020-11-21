@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.MyApplication" parent="android:Widget" />
+
+    <style name="Widget.MyApplication.RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/comet</item>
+        <item name="colorControlHighlight">@color/radical_red</item>
+        <item name="colorControlActivated">@color/radical_red</item>
+    </style>
+
+    <style name="Widget.MyApplication.ImageWithRoundedCorners10" parent="">
+        <item name="cornerSize">10%</item>
+    </style>
+
+</resources>
