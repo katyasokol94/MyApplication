@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/cl_movie_item"
+    android:layout_width="170dp"
+    android:layout_height="296dp"
+    android:background="@drawable/bg_movie_item"
+    android:elevation="24dp"
+    android:padding="2dp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="6dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="6dp" />
+
+    <ImageView
+        android:id="@+id/iv_movie_item_picture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/movie_item"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_movie_item_picture_mask"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/bg_rect_gradient"
+        app:layout_constraintBottom_toBottomOf="@id/iv_movie_item_picture"
+        app:layout_constraintTop_toTopOf="@id/iv_movie_item_picture" />
+
+    <ImageView
+        android:id="@+id/iv_movie_item_favorite"
+        android:layout_width="16dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_favorite"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white_alpha_75" />
+
+    <TextView
+        android:id="@+id/tv_movie_item_age_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_rect_alpha_90"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="@string/movie_list_13"
+        android:textAppearance="@style/TextAppearance.Bold.12"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@id/guideline_start"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_movie_item_tag"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:gravity="start"
+        android:text="@string/movie_list_action_adventure_fantasy"
+        android:textAppearance="@style/TextAppearance.Regular.8"
+        android:textColor="@color/radical_red"
+        app:layout_constraintBottom_toTopOf="@+id/rb_movie_item_rating"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start" />
+
+    <RatingBar
+        android:id="@+id/rb_movie_item_rating"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:padding="0dp"
+        android:rating="4"
+        android:stepSize="1"
+        android:theme="@style/Widget.MyApplication.RatingBar"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_movie_item_review"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toTopOf="@+id/tv_movie_item_review" />
+
+    <TextView
+        android:id="@+id/tv_movie_item_review"
+        android:layout_width="wrap_content"
+        android:layout_height="12dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="start|center_vertical"
+        android:text="@string/movie_list_125_reviews"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Bold.8"
+        android:textColor="@color/comet"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_movie_item_picture"
+        app:layout_constraintStart_toEndOf="@+id/rb_movie_item_rating" />
+
+    <TextView
+        android:id="@+id/tv_movie_item_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="start"
+        android:text="@string/movie_list_avengers_end_game"
+        android:textAppearance="@style/TextAppearance.Bold.14"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/iv_movie_item_picture"
+        tool:text="Avengers: End Game" />
+
+    <TextView
+        android:id="@+id/tv_movie_item_duration"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:gravity="start"
+        android:text="@string/movie_list_137_min"
+        android:textAppearance="@style/TextAppearance.Bold.8"
+        android:textColor="@color/smoky"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/tv_movie_item_name"
+        tool:text="137 min" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
