@@ -2,6 +2,7 @@ package com.sokolkatya.myapplication.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import com.sokolkatya.myapplication.R
 
 class MainActivity : AppCompatActivity(), FragmentMoviesList.MovieClickListener,
@@ -16,17 +17,26 @@ class MainActivity : AppCompatActivity(), FragmentMoviesList.MovieClickListener,
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportFragmentManager.beginTransaction()
-                .apply {
-                    add(R.id.flContainer, movieListFragment)
-                    commit()
-                }
+        if (savedInstanceState == null) {
+            supportFragmentManager.popBackStack(
+                BACK_STACK_ROOT_TAG,
+                FragmentManager.POP_BACK_STACK_INCLUSIVE
+            )
+
+            supportFragmentManager.beginTransaction()
+                    .apply {
+                        add(R.id.flContainer, movieListFragment)
+                        addToBackStack(BACK_STACK_ROOT_TAG)
+                        commit()
+                    }
+        }
     }
 
     override fun onClick() {
         supportFragmentManager.beginTransaction()
                 .apply {
                     add(R.id.flContainer, movieDetailsFragment)
+                    addToBackStack(null)
                     commit()
                 }
     }
@@ -36,14 +46,7 @@ class MainActivity : AppCompatActivity(), FragmentMoviesList.MovieClickListener,
     }
 
     private fun removeLastFragment() {
-        if (supportFragmentManager.fragments.size > 1) {
-            val lastFragment = supportFragmentManager.fragments.last()
-            supportFragmentManager.beginTransaction()
-                    .apply {
-                        remove(lastFragment)
-                        commit()
-                    }
-        }
+        supportFragmentManager.popBackStackImmediate()
     }
 
     override fun onBackPressed() {
@@ -52,5 +55,10 @@ class MainActivity : AppCompatActivity(), FragmentMoviesList.MovieClickListener,
         } else {
             super.onBackPressed()
         }
+    }
+
+    companion object {
+
+        const val BACK_STACK_ROOT_TAG = "root_fragment"
     }
 }

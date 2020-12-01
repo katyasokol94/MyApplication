@@ -16,5 +16,7 @@
     <color name="whisper">#ECECEC</color>
     <color name="gainsboro">#D8D8D8</color>
     <color name="smoky">#565665</color>
+    <color name="jaguar">#222232</color>
+    <color name="gun_powder">#FD404056</color>
 
 </resources>

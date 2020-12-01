@@ -11,10 +11,10 @@
     <gradient
         android:centerX="85"
         android:centerY="148"
-        android:endColor="#222232"
+        android:endColor="@color/jaguar"
         android:fillAlpha="0.55"
         android:gradientRadius="42.5"
-        android:startColor="#FD404056"
+        android:startColor="@color/gun_powder"
         android:type="radial" />
 
 </shape>
