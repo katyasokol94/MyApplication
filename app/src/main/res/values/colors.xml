@@ -6,11 +6,17 @@
 
     <color name="black_russian">#191926</color>
     <color name="black_russian_alpha_0">#03191926</color>
+    <color name="black_russian_alpha_90">#E6191926</color>
     <color name="comet">#6D6D80</color>
+    <color name="comet_alpha_50">#806D6D80</color>
     <color name="white">#FFFFFF</color>
     <color name="white_alpha_50">#80FFFFFF</color>
+    <color name="white_alpha_75">#BFFFFFFF</color>
     <color name="radical_red">#FF3466</color>
     <color name="whisper">#ECECEC</color>
     <color name="gainsboro">#D8D8D8</color>
+    <color name="smoky">#565665</color>
+    <color name="jaguar">#222232</color>
+    <color name="gun_powder">#FD404056</color>
 
 </resources>

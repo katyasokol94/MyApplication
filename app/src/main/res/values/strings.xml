@@ -1,10 +1,12 @@
 <resources>
 
     <string name="app_name">My Application</string>
+
+    <!--Movie details-->
     <string name="movie_details_back">Back</string>
     <string name="movie_details_13">13+</string>
     <string name="movie_details_action_adventure_fantasy">Action, Adventure, Fantasy</string>
-    <string name="movie_details_avengers_nend_game">Avengers:\nEnd Game</string>
+    <string name="movie_details_avengers_end_game">Avengers:\nEnd Game</string>
     <string name="movie_details_125_reviews">125 Reviews</string>
     <string name="movie_details_storyline">Storyline</string>
     <string name="movie_details_description">After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.</string>
@@ -13,5 +15,13 @@
     <string name="movie_details_chris_evans">Chris Evans</string>
     <string name="movie_details_mark_ruffalo">Mark Ruffalo</string>
     <string name="movie_details_chris_hemsworth">Chris Hemsworth</string>
+
+    <!--Movie List-->
+    <string name="movie_list_movie_list">Movies list</string>
+    <string name="movie_list_13">13+</string>
+    <string name="movie_list_action_adventure_fantasy">Action, Adventure, Fantasy</string>
+    <string name="movie_list_avengers_end_game">Avengers: End Game</string>
+    <string name="movie_list_125_reviews">125 Reviews</string>
+    <string name="movie_list_137_min">137 min</string>
 
 </resources>

@@ -42,11 +42,13 @@
             app:layout_constraintGuide_end="16dp" />
 
         <TextView
-            android:id="@+id/tv_back"
+            android:id="@+id/tv_movie_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
+            android:clickable="true"
             android:drawablePadding="3dp"
+            android:focusable="true"
             android:gravity="center"
             android:padding="5dp"
             android:text="@string/movie_details_back"
@@ -62,7 +64,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="start"
-            android:text="@string/movie_details_avengers_nend_game"
+            android:text="@string/movie_details_avengers_end_game"
             android:textAppearance="@style/TextAppearance.Bold.40"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/iv_movie_picture"

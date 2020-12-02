@@ -11,6 +11,10 @@
         <item name="android:fontFamily">@font/roboto_bold</item>
     </style>
 
+    <style name="TextAppearance.Regular.8">
+        <item name="android:textSize">8sp</item>
+    </style>
+
     <style name="TextAppearance.Regular.12">
         <item name="android:textSize">12sp</item>
     </style>
@@ -29,6 +33,10 @@
 
     <style name="TextAppearance.Regular.20">
         <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextAppearance.Bold.8">
+        <item name="android:textSize">8sp</item>
     </style>
 
     <style name="TextAppearance.Bold.12">

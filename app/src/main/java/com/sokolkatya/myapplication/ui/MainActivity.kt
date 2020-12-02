@@ -1,22 +1,64 @@
 package com.sokolkatya.myapplication.ui
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import com.sokolkatya.myapplication.R
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), FragmentMoviesList.MovieClickListener,
+    FragmentMoviesDetails.MovieDetailsClickListener {
+
+    private var movieListFragment =
+            FragmentMoviesList().apply { setClickListener(this@MainActivity) }
+    private var movieDetailsFragment =
+            FragmentMoviesDetails().apply { setClickListener(this@MainActivity) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_main)
 
-        val tvMoveToNextScreen = findViewById<TextView>(R.id.tv_move_to_next_screen)
-        tvMoveToNextScreen.setOnClickListener {
-            val intent: Intent = Intent(this, MovieDetailsActivity::class.java)
-            startActivity(intent)
+        if (savedInstanceState == null) {
+            supportFragmentManager.popBackStack(
+                BACK_STACK_ROOT_TAG,
+                FragmentManager.POP_BACK_STACK_INCLUSIVE
+            )
+
+            supportFragmentManager.beginTransaction()
+                    .apply {
+                        add(R.id.flContainer, movieListFragment)
+                        addToBackStack(BACK_STACK_ROOT_TAG)
+                        commit()
+                    }
         }
+    }
+
+    override fun onClick() {
+        supportFragmentManager.beginTransaction()
+                .apply {
+                    add(R.id.flContainer, movieDetailsFragment)
+                    addToBackStack(null)
+                    commit()
+                }
+    }
+
+    override fun onBackClick() {
+        removeLastFragment()
+    }
+
+    private fun removeLastFragment() {
+        supportFragmentManager.popBackStackImmediate()
+    }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.fragments.size > 1) {
+            removeLastFragment()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    companion object {
+
+        const val BACK_STACK_ROOT_TAG = "root_fragment"
     }
 }
