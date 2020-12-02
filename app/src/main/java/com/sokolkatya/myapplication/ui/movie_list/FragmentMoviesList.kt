@@ -1,4 +1,4 @@
-package com.sokolkatya.myapplication.ui
+package com.sokolkatya.myapplication.ui.movie_list
 
 import android.os.Bundle
 import android.view.LayoutInflater

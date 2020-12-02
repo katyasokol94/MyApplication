@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="80dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.sokolkatya.myapplication.ui.view.SquareShapeableImageView
+        android:id="@+id/iv_movie_actor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/movie_details_cast_1" />
+
+    <TextView
+        android:id="@+id/tv_movie_actor_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:maxLines="2"
+        android:text="@string/movie_details_robert_downey_jr"
+        android:textAppearance="@style/TextAppearance.Bold.12"
+        android:textColor="@color/white" />
+
+</LinearLayout>

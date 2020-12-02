@@ -164,115 +164,18 @@
             app:layout_constraintStart_toStartOf="@+id/guideline_start"
             app:layout_constraintTop_toBottomOf="@+id/tv_movie_storyline" />
 
-        <com.sokolkatya.myapplication.ui.view.SquareShapeableImageView
-            android:id="@+id/iv_movie_cast_1"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_actors"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:src="@drawable/movie_details_cast_1"
-            app:layout_constraintEnd_toStartOf="@+id/iv_movie_cast_2"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movie_cast_title" />
-
-        <TextView
-            android:id="@+id/tv_movie_cast_1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
             android:layout_marginBottom="10dp"
-            android:maxLines="2"
-            android:text="@string/movie_details_robert_downey_jr"
-            android:textAppearance="@style/TextAppearance.Bold.12"
-            android:textColor="@color/white"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/iv_movie_cast_1"
-            app:layout_constraintStart_toStartOf="@+id/iv_movie_cast_1"
-            app:layout_constraintTop_toBottomOf="@+id/iv_movie_cast_1"
-            app:layout_constraintVertical_bias="0" />
-
-        <com.sokolkatya.myapplication.ui.view.SquareShapeableImageView
-            android:id="@+id/iv_movie_cast_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:src="@drawable/movie_details_cast_2"
-            app:layout_constraintEnd_toStartOf="@+id/iv_movie_cast_3"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/iv_movie_cast_1"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movie_cast_title" />
-
-        <TextView
-            android:id="@+id/tv_movie_cast_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="10dp"
-            android:maxLines="2"
-            android:text="@string/movie_details_chris_evans"
-            android:textAppearance="@style/TextAppearance.Bold.12"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/iv_movie_cast_2"
-            app:layout_constraintStart_toStartOf="@+id/iv_movie_cast_2"
-            app:layout_constraintTop_toBottomOf="@+id/iv_movie_cast_2"
-            app:layout_constraintVertical_bias="0" />
-
-        <com.sokolkatya.myapplication.ui.view.SquareShapeableImageView
-            android:id="@+id/iv_movie_cast_3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:src="@drawable/movie_details_cast_3"
-            app:layout_constraintEnd_toStartOf="@+id/iv_movie_cast_4"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/iv_movie_cast_2"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movie_cast_title" />
-
-        <TextView
-            android:id="@+id/tv_movie_cast_3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="10dp"
-            android:maxLines="2"
-            android:text="@string/movie_details_mark_ruffalo"
-            android:textAppearance="@style/TextAppearance.Bold.12"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/iv_movie_cast_3"
-            app:layout_constraintStart_toStartOf="@+id/iv_movie_cast_3"
-            app:layout_constraintTop_toBottomOf="@+id/iv_movie_cast_3"
-            app:layout_constraintVertical_bias="0" />
-
-        <com.sokolkatya.myapplication.ui.view.SquareShapeableImageView
-            android:id="@+id/iv_movie_cast_4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/movie_details_cast_4"
-            app:layout_constraintEnd_toEndOf="@id/guideline_end"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/iv_movie_cast_3"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movie_cast_title" />
-
-        <TextView
-            android:id="@+id/tv_movie_cast_4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="10dp"
-            android:maxLines="2"
-            android:text="@string/movie_details_chris_hemsworth"
-            android:textAppearance="@style/TextAppearance.Bold.12"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/iv_movie_cast_4"
-            app:layout_constraintStart_toStartOf="@+id/iv_movie_cast_4"
-            app:layout_constraintTop_toBottomOf="@+id/iv_movie_cast_4"
+            app:layout_constraintEnd_toStartOf="@id/guideline_end"
+            app:layout_constraintStart_toEndOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/tv_movie_cast_title"
             app:layout_constraintVertical_bias="0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
