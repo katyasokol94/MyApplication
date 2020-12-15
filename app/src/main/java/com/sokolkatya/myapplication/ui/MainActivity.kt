@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import com.sokolkatya.myapplication.R
+import com.sokolkatya.myapplication.ui.movie_details.FragmentMoviesDetails
+import com.sokolkatya.myapplication.ui.movie_list.FragmentMoviesList
 
 class MainActivity : AppCompatActivity(), FragmentMoviesList.MovieClickListener,
     FragmentMoviesDetails.MovieDetailsClickListener {
