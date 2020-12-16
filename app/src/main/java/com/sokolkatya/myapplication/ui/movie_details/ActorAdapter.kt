@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.sokolkatya.myapplication.R
-import com.sokolkatya.myapplication.ui.entities.Actor
+import com.sokolkatya.myapplication.data.Actor
 
 class ActorAdapter : ListAdapter<Actor, ActorViewHolder>(DiffItemCallback()) {
 
@@ -26,7 +26,7 @@ class ActorAdapter : ListAdapter<Actor, ActorViewHolder>(DiffItemCallback()) {
     private class DiffItemCallback : DiffUtil.ItemCallback<Actor>() {
 
         override fun areItemsTheSame(oldItem: Actor, newItem: Actor): Boolean =
-                oldItem.name == newItem.name
+                oldItem.id == newItem.id
 
         override fun areContentsTheSame(oldItem: Actor, newItem: Actor): Boolean =
                 oldItem == newItem

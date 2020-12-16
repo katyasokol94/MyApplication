@@ -4,7 +4,8 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sokolkatya.myapplication.R
-import com.sokolkatya.myapplication.ui.entities.Actor
+import com.sokolkatya.myapplication.data.Actor
+import com.sokolkatya.myapplication.extension.loadImage
 import com.sokolkatya.myapplication.ui.view.SquareShapeableImageView
 
 class ActorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -13,7 +14,7 @@ class ActorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private var tvName: TextView = itemView.findViewById(R.id.tv_movie_actor_name)
 
     fun bind(actor: Actor) {
-        tvName.text = itemView.context.getString(actor.name)
-        ivPhoto.setImageResource(actor.photo)
+        tvName.text = actor.name
+        ivPhoto.loadImage(actor.picture)
     }
 }

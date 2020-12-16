@@ -9,15 +9,21 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sokolkatya.myapplication.R
+import com.sokolkatya.myapplication.data.Movie
+import com.sokolkatya.myapplication.data.loadMovies
 import com.sokolkatya.myapplication.extension.dipI
-import com.sokolkatya.myapplication.ui.entities.Movie
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class FragmentMoviesList : Fragment(), MovieAdapter.OnMovieClickListener {
 
+    private val scope = CoroutineScope(Dispatchers.Default)
+
     private lateinit var rvMovies: RecyclerView
+    private lateinit var adapter: MovieAdapter
 
     private var listener: MovieClickListener? = null
-    private lateinit var adapter: MovieAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,61 +73,11 @@ class FragmentMoviesList : Fragment(), MovieAdapter.OnMovieClickListener {
                 }
             })
         }
-        adapter.setData(composeMoviesList())
+        scope.launch {
+            val list = loadMovies(requireContext())
+            adapter.setData(list)
+        }
     }
-
-    private fun composeMoviesList(): MutableList<Movie> =
-            mutableListOf<Movie>()
-                    .apply {
-                        add(
-                            Movie(
-                                R.drawable.movie_item_1,
-                                R.string.movie_list_avengers_end_game,
-                                4,
-                                13,
-                                R.string.movie_list_action_adventure_fantasy,
-                                125,
-                                137,
-                                false
-                            )
-                        )
-                        add(
-                            Movie(
-                                R.drawable.movie_item_1,
-                                R.string.movie_list_avengers_end_game,
-                                1,
-                                13,
-                                R.string.movie_list_action_adventure_fantasy,
-                                125,
-                                137,
-                                true
-                            )
-                        )
-                        add(
-                            Movie(
-                                R.drawable.movie_item_1,
-                                R.string.movie_list_avengers_end_game,
-                                5,
-                                13,
-                                R.string.movie_list_action_adventure_fantasy,
-                                125,
-                                137,
-                                true
-                            )
-                        )
-                        add(
-                            Movie(
-                                R.drawable.movie_item_1,
-                                R.string.movie_list_avengers_end_game,
-                                2,
-                                13,
-                                R.string.movie_list_action_adventure_fantasy,
-                                125,
-                                137,
-                                false
-                            )
-                        )
-                    }
 
     fun setClickListener(l: MovieClickListener?) {
         listener = l

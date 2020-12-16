@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.sokolkatya.myapplication.R
-import com.sokolkatya.myapplication.ui.entities.Movie
+import com.sokolkatya.myapplication.data.Movie
 
 class MovieAdapter(
     private var listener: OnMovieClickListener
@@ -29,7 +29,7 @@ class MovieAdapter(
     private class DiffItemCallback : DiffUtil.ItemCallback<Movie>() {
 
         override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean =
-                oldItem.name == newItem.name
+                oldItem.id== newItem.id
 
         override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean =
                 oldItem == newItem

@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.sokolkatya.myapplication.R
 import com.sokolkatya.myapplication.extension.dipI
-import com.sokolkatya.myapplication.ui.entities.Actor
 
 class FragmentMoviesDetails : Fragment() {
 
@@ -65,37 +64,9 @@ class FragmentMoviesDetails : Fragment() {
                 }
             })
         }
-        adapter.setData(composeActorsList())
+        //TODO: Implement loading data
+//        adapter.setData()
     }
-
-    private fun composeActorsList(): MutableList<Actor> =
-            mutableListOf<Actor>()
-                    .apply {
-                        add(
-                            Actor(
-                                R.string.movie_details_robert_downey_jr,
-                                R.drawable.movie_details_cast_1
-                            )
-                        )
-                        add(
-                            Actor(
-                                R.string.movie_details_chris_evans,
-                                R.drawable.movie_details_cast_2
-                            )
-                        )
-                        add(
-                            Actor(
-                                R.string.movie_details_mark_ruffalo,
-                                R.drawable.movie_details_cast_3
-                            )
-                        )
-                        add(
-                            Actor(
-                                R.string.movie_details_chris_hemsworth,
-                                R.drawable.movie_details_cast_4
-                            )
-                        )
-                    }
 
     fun setClickListener(l: MovieDetailsClickListener?) {
         listener = l

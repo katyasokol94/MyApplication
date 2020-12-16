@@ -13,4 +13,9 @@
         <item name="cornerSize">10%</item>
     </style>
 
+    <style name="Widget.MyApplication.ImageWithTopRoundedCorners6" parent="">
+        <item name="cornerSizeTopLeft">6dp</item>
+        <item name="cornerSizeTopRight">6dp</item>
+    </style>
+
 </resources>

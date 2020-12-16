@@ -6,7 +6,8 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sokolkatya.myapplication.R
-import com.sokolkatya.myapplication.ui.entities.Movie
+import com.sokolkatya.myapplication.data.Movie
+import com.sokolkatya.myapplication.extension.loadImage
 
 class MovieViewHolder(
     private var itemView: View,
@@ -18,7 +19,7 @@ class MovieViewHolder(
     private var ivPhoto: ImageView = itemView.findViewById(R.id.iv_movie_item_picture)
     private var ivFavorite: ImageView = itemView.findViewById(R.id.iv_movie_item_favorite)
     private var tvAgeRating: TextView = itemView.findViewById(R.id.tv_movie_item_age_rating)
-    private var tvTags: TextView = itemView.findViewById(R.id.tv_movie_item_tag)
+    private var tvGenres: TextView = itemView.findViewById(R.id.tv_movie_item_genres)
     private var rbRating: RatingBar = itemView.findViewById(R.id.rb_movie_item_rating)
     private var tvReview: TextView = itemView.findViewById(R.id.tv_movie_item_review)
     private var tvName: TextView = itemView.findViewById(R.id.tv_movie_item_name)
@@ -30,22 +31,22 @@ class MovieViewHolder(
 
     fun bind(movie: Movie) {
         data = movie
-        ivPhoto.setImageResource(movie.photo)
+        ivPhoto.loadImage(movie.poster)
         tvAgeRating.text = String.format(
             itemView.context.getString(R.string.movie_list_age_rating),
-            movie.ageRating
+            movie.minimumAge
         )
-        tvTags.text = itemView.context.getString(movie.tags)
-        rbRating.rating = movie.rating.toFloat()
+        tvGenres.text = movie.genres.joinToString(separator = ", ") { it.name }
+        rbRating.rating = movie.ratings.div(2)
         tvReview.text = String.format(
             itemView.context.getString(R.string.movie_list_reviews),
-            movie.reviews
+            movie.numberOfRatings
         )
-        tvName.text = itemView.context.getString(movie.name)
+        tvName.text = movie.title
         tvDuration.text = String.format(
             itemView.context.getString(R.string.movie_list_duration),
-            movie.duration
+            movie.runtime
         )
-        ivFavorite.isSelected = movie.favorite
+        ivFavorite.isSelected = movie.numberOfRatings.rem(2) > 0 // Just placeholder for setting 'Favorite' mark.
     }
 }
