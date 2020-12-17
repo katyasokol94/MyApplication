@@ -15,6 +15,6 @@ class ActorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bind(actor: Actor) {
         tvName.text = actor.name
-        ivPhoto.loadImage(actor.picture)
+        ivPhoto.loadImage(url = actor.picture, centerCrop = true)
     }
 }

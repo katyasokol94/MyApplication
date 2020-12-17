@@ -14,6 +14,7 @@ import com.sokolkatya.myapplication.data.loadMovies
 import com.sokolkatya.myapplication.extension.dipI
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
 class FragmentMoviesList : Fragment(), MovieAdapter.OnMovieClickListener {
@@ -79,16 +80,22 @@ class FragmentMoviesList : Fragment(), MovieAdapter.OnMovieClickListener {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+
+        scope.cancel()
+    }
+
     fun setClickListener(l: MovieClickListener?) {
         listener = l
     }
 
     interface MovieClickListener {
 
-        fun onClick()
+        fun onClick(movieId: Int)
     }
 
     override fun onClick(movie: Movie) {
-        listener?.onClick()
+        listener?.onClick(movie.id)
     }
 }
