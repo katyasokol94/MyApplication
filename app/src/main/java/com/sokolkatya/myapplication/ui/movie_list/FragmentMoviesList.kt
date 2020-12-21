@@ -80,8 +80,8 @@ class FragmentMoviesList : Fragment(), MovieAdapter.OnMovieClickListener {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
 
         scope.cancel()
     }
