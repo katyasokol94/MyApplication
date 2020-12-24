@@ -12,8 +12,7 @@ class MainActivity : AppCompatActivity(), FragmentMoviesList.MovieClickListener,
 
     private var movieListFragment =
             FragmentMoviesList().apply { setClickListener(this@MainActivity) }
-    private var movieDetailsFragment =
-            FragmentMoviesDetails().apply { setClickListener(this@MainActivity) }
+    private lateinit var movieDetailsFragment: FragmentMoviesDetails
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +33,9 @@ class MainActivity : AppCompatActivity(), FragmentMoviesList.MovieClickListener,
         }
     }
 
-    override fun onClick() {
+    override fun onClick(movieId: Int) {
+        movieDetailsFragment = FragmentMoviesDetails.newInstance(movieId)
+                .apply { setClickListener(this@MainActivity) }
         supportFragmentManager.beginTransaction()
                 .apply {
                     add(R.id.flContainer, movieDetailsFragment)
