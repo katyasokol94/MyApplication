@@ -1,4 +1,4 @@
-package com.sokolkatya.myapplication.ui.movie_details
+package com.sokolkatya.myapplication.ui.movie_details.list
 
 import android.view.View
 import android.widget.TextView
