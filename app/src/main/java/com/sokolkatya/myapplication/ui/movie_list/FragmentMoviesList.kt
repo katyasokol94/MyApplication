@@ -2,37 +2,24 @@ package com.sokolkatya.myapplication.ui.movie_list
 
 import android.graphics.Rect
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sokolkatya.myapplication.R
 import com.sokolkatya.myapplication.data.Movie
-import com.sokolkatya.myapplication.data.loadMovies
 import com.sokolkatya.myapplication.extension.dipI
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.launch
+import com.sokolkatya.myapplication.ui.movie_list.list.MovieAdapter
 
-class FragmentMoviesList : Fragment(), MovieAdapter.OnMovieClickListener {
+class FragmentMoviesList : Fragment(R.layout.fragment_movies_list),
+    MovieAdapter.OnMovieClickListener {
 
-    private val scope = CoroutineScope(Dispatchers.Default)
+    private lateinit var viewModel: MovieListViewModel
 
     private lateinit var rvMovies: RecyclerView
     private lateinit var adapter: MovieAdapter
 
     private var listener: MovieClickListener? = null
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_movies_list, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,6 +33,7 @@ class FragmentMoviesList : Fragment(), MovieAdapter.OnMovieClickListener {
     }
 
     private fun init() {
+        viewModel = MovieListViewModel(requireContext())
         adapter = MovieAdapter(this)
         rvMovies.apply {
             adapter = this@FragmentMoviesList.adapter
@@ -74,28 +62,30 @@ class FragmentMoviesList : Fragment(), MovieAdapter.OnMovieClickListener {
                 }
             })
         }
-        scope.launch {
-            val list = loadMovies(requireContext())
-            adapter.setData(list)
-        }
+        viewModel.movies.observe(this.viewLifecycleOwner, this::updateAdapter)
+        viewModel.getMovies()
+    }
+
+    private fun updateAdapter(movies: List<Movie>) {
+        adapter.submitList(movies)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
 
-        scope.cancel()
+        rvMovies.adapter = null
     }
 
     fun setClickListener(l: MovieClickListener?) {
         listener = l
     }
 
+    override fun onClick(movie: Movie) {
+        listener?.onClick(movie.id)
+    }
+
     interface MovieClickListener {
 
         fun onClick(movieId: Int)
-    }
-
-    override fun onClick(movie: Movie) {
-        listener?.onClick(movie.id)
     }
 }

@@ -2,9 +2,7 @@ package com.sokolkatya.myapplication.ui.movie_details
 
 import android.graphics.Rect
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
@@ -12,18 +10,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.sokolkatya.myapplication.R
 import com.sokolkatya.myapplication.data.Movie
-import com.sokolkatya.myapplication.data.loadMovies
 import com.sokolkatya.myapplication.extension.dipI
 import com.sokolkatya.myapplication.extension.loadImage
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import com.sokolkatya.myapplication.ui.movie_details.list.ActorAdapter
 
-class FragmentMoviesDetails : Fragment() {
+class FragmentMoviesDetails : Fragment(R.layout.fragment_movies_details) {
 
-    private val scope = CoroutineScope(Dispatchers.Default)
+    private lateinit var viewModel: MovieDetailsViewModel
+
     private var listener: MovieDetailsClickListener? = null
 
     private lateinit var tvBack: TextView
@@ -38,14 +32,6 @@ class FragmentMoviesDetails : Fragment() {
     private lateinit var rvActors: RecyclerView
 
     private lateinit var adapter: ActorAdapter
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_movies_details, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -75,6 +61,7 @@ class FragmentMoviesDetails : Fragment() {
     }
 
     private fun init() {
+        viewModel = MovieDetailsViewModel(requireContext())
         adapter = ActorAdapter()
         rvActors.apply {
             adapter = this@FragmentMoviesDetails.adapter
@@ -92,13 +79,11 @@ class FragmentMoviesDetails : Fragment() {
                 }
             })
         }
-        scope.launch {
-            val list = loadMovies(requireContext())
-            setData(list.find { it.id == movieId }!!)
-        }
+        viewModel.movies.observe(this.viewLifecycleOwner, this::setData)
+        viewModel.getMovie(movieId)
     }
 
-    private suspend fun setData(movie: Movie) = withContext(Dispatchers.Main) {
+    private fun setData(movie: Movie) {
         ivPicture.loadImage(url = movie.backdrop)
         tvName.text = movie.title
         tvAgeRating.text = String.format(
@@ -125,7 +110,7 @@ class FragmentMoviesDetails : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
 
-        scope.cancel()
+        rvActors.adapter = null
     }
 
     fun setClickListener(l: MovieDetailsClickListener?) {

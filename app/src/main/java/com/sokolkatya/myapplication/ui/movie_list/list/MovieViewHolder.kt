@@ -1,4 +1,4 @@
-package com.sokolkatya.myapplication.ui.movie_list
+package com.sokolkatya.myapplication.ui.movie_list.list
 
 import android.view.View
 import android.widget.ImageView
