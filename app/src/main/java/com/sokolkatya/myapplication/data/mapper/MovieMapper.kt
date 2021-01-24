@@ -1,7 +1,11 @@
 package com.sokolkatya.myapplication.data.mapper
 
+import com.sokolkatya.myapplication.data.entities.Department
 import com.sokolkatya.myapplication.data.entities.Genre
+import com.sokolkatya.myapplication.data.entities.MovieDetails
 import com.sokolkatya.myapplication.data.entities.Result
+import com.sokolkatya.myapplication.ui.entities.Actor
+import com.sokolkatya.myapplication.ui.entities.MovieDetailsItem
 import com.sokolkatya.myapplication.ui.entities.MovieItem
 
 fun transformMovies(
@@ -30,3 +34,30 @@ fun transformMovies(
         }
     }
 }
+
+fun transformMovieDetails(
+    result: MovieDetails,
+    imageUrl: String
+): MovieDetailsItem =
+        MovieDetailsItem(
+            result.adult,
+            if (result.adult) 16 else 13,
+            imageUrl.plus(result.backdropPath),
+            result.genres,
+            result.id,
+            result.overview,
+            imageUrl.plus(result.backdropPath),
+            result.releaseDate,
+            result.revenue,
+            result.runtime,
+            result.title,
+            result.voteAverage,
+            result.voteCount,
+            mutableListOf<Actor>().apply {
+                result.credits.cast
+                        .filter { it.knownForDepartment == Department.ACTING && it.profilePath != null }
+                        .forEach { cast ->
+                            add(Actor(cast.id.toInt(), cast.name, imageUrl.plus(cast.profilePath)))
+                        }
+            }
+        )

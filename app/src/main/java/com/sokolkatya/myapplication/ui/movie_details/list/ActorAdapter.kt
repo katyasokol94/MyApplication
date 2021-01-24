@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.sokolkatya.myapplication.R
-import com.sokolkatya.myapplication.data.entities.Actor
+import com.sokolkatya.myapplication.ui.entities.Actor
 
 class ActorAdapter : ListAdapter<Actor, ActorViewHolder>(DiffItemCallback()) {
 

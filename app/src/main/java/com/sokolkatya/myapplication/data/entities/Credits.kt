@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Credits(
-    val cast: List<Actor>
+    val cast: List<Cast>
 )

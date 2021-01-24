@@ -9,9 +9,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.sokolkatya.myapplication.R
-import com.sokolkatya.myapplication.data.Movie
 import com.sokolkatya.myapplication.extension.dipI
 import com.sokolkatya.myapplication.extension.loadImage
+import com.sokolkatya.myapplication.ui.entities.MovieDetailsItem
 import com.sokolkatya.myapplication.ui.movie_details.list.ActorAdapter
 
 class FragmentMoviesDetails : Fragment(R.layout.fragment_movies_details) {
@@ -79,22 +79,22 @@ class FragmentMoviesDetails : Fragment(R.layout.fragment_movies_details) {
                 }
             })
         }
-        viewModel.movies.observe(this.viewLifecycleOwner, this::setData)
-        viewModel.getMovie(movieId)
+        viewModel.movie.observe(this.viewLifecycleOwner, this::setData)
+        viewModel.getMovieDetails(movieId)
     }
 
-    private fun setData(movie: Movie) {
-        ivPicture.loadImage(url = movie.backdrop)
+    private fun setData(movie: MovieDetailsItem) {
+        ivPicture.loadImage(url = movie.backdropPath)
         tvName.text = movie.title
         tvAgeRating.text = String.format(
             getString(R.string.movie_list_age_rating),
             movie.minimumAge
         )
         tvGenres.text = movie.genres.joinToString(separator = ", ") { it.name }
-        rbMovieRating.rating = movie.ratings.div(2)
+        rbMovieRating.rating = movie.voteAverage.toFloat().div(2)
         tvReviews.text = String.format(
             getString(R.string.movie_list_reviews),
-            movie.numberOfRatings
+            movie.voteCount
         )
         tvStoryline.text = movie.overview
         if (movie.actors.isEmpty()) {
