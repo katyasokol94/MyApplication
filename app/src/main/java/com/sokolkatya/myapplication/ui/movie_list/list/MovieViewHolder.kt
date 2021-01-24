@@ -6,15 +6,15 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sokolkatya.myapplication.R
-import com.sokolkatya.myapplication.data.Movie
 import com.sokolkatya.myapplication.extension.loadImage
+import com.sokolkatya.myapplication.ui.entities.MovieItem
 
 class MovieViewHolder(
     private var itemView: View,
     private var listener: MovieAdapter.OnMovieClickListener
 ) : RecyclerView.ViewHolder(itemView) {
 
-    private lateinit var data: Movie
+    private lateinit var data: MovieItem
 
     private var ivPhoto: ImageView = itemView.findViewById(R.id.iv_movie_item_picture)
     private var ivFavorite: ImageView = itemView.findViewById(R.id.iv_movie_item_favorite)
@@ -29,7 +29,7 @@ class MovieViewHolder(
         itemView.setOnClickListener { listener.onClick(data) }
     }
 
-    fun bind(movie: Movie) {
+    fun bind(movie: MovieItem) {
         data = movie
         ivPhoto.loadImage(movie.poster)
         tvAgeRating.text = String.format(
@@ -43,10 +43,11 @@ class MovieViewHolder(
             movie.numberOfRatings
         )
         tvName.text = movie.title
-        tvDuration.text = String.format(
-            itemView.context.getString(R.string.movie_list_duration),
-            movie.runtime
-        )
-        ivFavorite.isSelected = movie.numberOfRatings.rem(2) > 0 // Just placeholder for setting 'Favorite' mark.
+
+//        tvDuration.text = String.format(
+//            itemView.context.getString(R.string.movie_list_duration),
+//            movie.runtime
+//        )
+//        ivFavorite.isSelected = movie.numberOfRatings.rem(2) > 0 // Just placeholder for setting 'Favorite' mark.
     }
 }

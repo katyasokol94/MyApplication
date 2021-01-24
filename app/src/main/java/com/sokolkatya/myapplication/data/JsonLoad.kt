@@ -1,6 +1,8 @@
 package com.sokolkatya.myapplication.data
 
 import android.content.Context
+import com.sokolkatya.myapplication.data.entities.Actor
+import com.sokolkatya.myapplication.data.entities.Genre
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.SerialName

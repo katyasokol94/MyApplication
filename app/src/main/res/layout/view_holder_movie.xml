@@ -50,6 +50,7 @@
         android:layout_height="@dimen/size_14"
         android:layout_marginTop="@dimen/margin_12"
         android:src="@drawable/ic_favorite"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/guideline_end"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/color_favorite_button" />
@@ -120,6 +121,7 @@
         app:layout_constraintEnd_toEndOf="@+id/guideline_end"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/iv_movie_item_picture"
+        app:layout_goneMarginBottom="8dp"
         tool:text="@string/movie_list_avengers_end_game" />
 
     <TextView
@@ -130,6 +132,7 @@
         android:gravity="start"
         android:textAppearance="@style/TextAppearance.Bold.8"
         android:textColor="@color/smoky"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/guideline_end"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"

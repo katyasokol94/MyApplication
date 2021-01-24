@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sokolkatya.myapplication.R
-import com.sokolkatya.myapplication.data.Actor
+import com.sokolkatya.myapplication.data.entities.Actor
 import com.sokolkatya.myapplication.extension.loadImage
 import com.sokolkatya.myapplication.ui.view.SquareShapeableImageView
 

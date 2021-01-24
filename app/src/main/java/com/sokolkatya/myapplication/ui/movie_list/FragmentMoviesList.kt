@@ -7,8 +7,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sokolkatya.myapplication.R
-import com.sokolkatya.myapplication.data.Movie
 import com.sokolkatya.myapplication.extension.dipI
+import com.sokolkatya.myapplication.ui.entities.MovieItem
 import com.sokolkatya.myapplication.ui.movie_list.list.MovieAdapter
 
 class FragmentMoviesList : Fragment(R.layout.fragment_movies_list),
@@ -66,8 +66,8 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list),
         viewModel.getMovies()
     }
 
-    private fun updateAdapter(movies: List<Movie>) {
-        adapter.submitList(movies)
+    private fun updateAdapter(movies: List<MovieItem>) {
+        adapter.setData(movies)
     }
 
     override fun onDestroyView() {
@@ -80,7 +80,7 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list),
         listener = l
     }
 
-    override fun onClick(movie: Movie) {
+    override fun onClick(movie: MovieItem) {
         listener?.onClick(movie.id)
     }
 
