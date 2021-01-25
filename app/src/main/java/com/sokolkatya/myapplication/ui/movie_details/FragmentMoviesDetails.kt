@@ -61,7 +61,7 @@ class FragmentMoviesDetails : Fragment(R.layout.fragment_movies_details) {
     }
 
     private fun init() {
-        viewModel = MovieDetailsViewModel(requireContext())
+        viewModel = MovieDetailsViewModel()
         adapter = ActorAdapter()
         rvActors.apply {
             adapter = this@FragmentMoviesDetails.adapter

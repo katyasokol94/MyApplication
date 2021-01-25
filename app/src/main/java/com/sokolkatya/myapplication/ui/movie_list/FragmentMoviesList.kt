@@ -33,7 +33,7 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list),
     }
 
     private fun init() {
-        viewModel = MovieListViewModel(requireContext())
+        viewModel = MovieListViewModel()
         adapter = MovieAdapter(this)
         rvMovies.apply {
             adapter = this@FragmentMoviesList.adapter

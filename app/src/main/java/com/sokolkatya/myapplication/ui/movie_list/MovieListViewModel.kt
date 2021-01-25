@@ -1,6 +1,5 @@
 package com.sokolkatya.myapplication.ui.movie_list
 
-import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -16,9 +15,7 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MovieListViewModel(
-    private val context: Context
-) : ViewModel() {
+class MovieListViewModel() : ViewModel() {
 
     private val movieRepository: MovieRepository = MovieRepository()
 
