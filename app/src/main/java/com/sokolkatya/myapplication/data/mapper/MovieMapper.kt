@@ -1,9 +1,9 @@
 package com.sokolkatya.myapplication.data.mapper
 
-import com.sokolkatya.myapplication.data.entities.Department
-import com.sokolkatya.myapplication.data.entities.Genre
-import com.sokolkatya.myapplication.data.entities.MovieDetails
-import com.sokolkatya.myapplication.data.entities.Result
+import com.sokolkatya.myapplication.data.entities.api.Department
+import com.sokolkatya.myapplication.data.entities.api.Genre
+import com.sokolkatya.myapplication.data.entities.api.MovieDetails
+import com.sokolkatya.myapplication.data.entities.api.Result
 import com.sokolkatya.myapplication.ui.entities.Actor
 import com.sokolkatya.myapplication.ui.entities.MovieDetailsItem
 import com.sokolkatya.myapplication.ui.entities.MovieItem

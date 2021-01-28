@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sokolkatya.myapplication.data.entities.Genre
+import com.sokolkatya.myapplication.data.entities.api.Genre
 import com.sokolkatya.myapplication.data.mapper.transformMovies
 import com.sokolkatya.myapplication.data.repository.MovieRepository
 import com.sokolkatya.myapplication.ui.entities.MovieItem

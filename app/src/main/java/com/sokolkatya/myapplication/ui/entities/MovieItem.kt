@@ -1,6 +1,6 @@
 package com.sokolkatya.myapplication.ui.entities
 
-import com.sokolkatya.myapplication.data.entities.Genre
+import com.sokolkatya.myapplication.data.entities.api.Genre
 
 data class MovieItem(
     val id: Int,

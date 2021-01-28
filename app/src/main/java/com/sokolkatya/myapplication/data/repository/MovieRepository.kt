@@ -1,9 +1,9 @@
 package com.sokolkatya.myapplication.data.repository
 
-import com.sokolkatya.myapplication.data.entities.Config
-import com.sokolkatya.myapplication.data.entities.GenreList
-import com.sokolkatya.myapplication.data.entities.MovieDetails
-import com.sokolkatya.myapplication.data.entities.Popular
+import com.sokolkatya.myapplication.data.entities.api.Config
+import com.sokolkatya.myapplication.data.entities.api.GenreList
+import com.sokolkatya.myapplication.data.entities.api.MovieDetails
+import com.sokolkatya.myapplication.data.entities.api.Popular
 import com.sokolkatya.myapplication.module.RetrofitModule
 
 class MovieRepository {

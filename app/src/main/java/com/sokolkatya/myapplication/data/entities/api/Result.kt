@@ -1,4 +1,4 @@
-package com.sokolkatya.myapplication.data.entities
+package com.sokolkatya.myapplication.data.entities.api
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
