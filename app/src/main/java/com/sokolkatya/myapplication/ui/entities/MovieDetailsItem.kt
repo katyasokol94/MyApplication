@@ -8,7 +8,6 @@ data class MovieDetailsItem(
     val genres: List<Genre>,
     val id: Long,
     val overview: String,
-    val posterPath: String,
     val runtime: Long,
     val title: String,
     val voteAverage: Double,

@@ -40,15 +40,11 @@ fun transformMovieDetails(
     imageUrl: String
 ): MovieDetailsItem =
         MovieDetailsItem(
-            result.adult,
             if (result.adult) 16 else 13,
             imageUrl.plus(result.backdropPath),
             result.genres,
             result.id,
             result.overview,
-            imageUrl.plus(result.backdropPath),
-            result.releaseDate,
-            result.revenue,
             result.runtime,
             result.title,
             result.voteAverage,
