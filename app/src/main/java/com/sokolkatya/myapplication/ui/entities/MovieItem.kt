@@ -9,5 +9,5 @@ data class MovieItem(
     val ratings: Float,
     val numberOfRatings: Int,
     val minimumAge: Int,
-    val genres: List<Genre>,
+    val genres: List<Genre>
 )

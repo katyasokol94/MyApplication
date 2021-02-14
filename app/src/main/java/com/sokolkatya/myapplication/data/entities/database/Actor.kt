@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "actor")
 data class Actor(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey
     @ColumnInfo(name = "actor_id") var actorId: Int,
     @ColumnInfo(name = "name") var name: String,
     @ColumnInfo(name = "picture") var picture: String

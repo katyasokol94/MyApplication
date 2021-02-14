@@ -6,16 +6,15 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "movie")
 data class Movie(
-    @PrimaryKey(autoGenerate = true) val id: Int,
-    @ColumnInfo(name = "movie_id") var movieId: Int,
-    @ColumnInfo(name = "minimum_age") var minimumAge: Int,
-    @ColumnInfo(name = "backdrop_path") var backdropPath: String,
-    @ColumnInfo(name = "overview") var overview: String,
-    @ColumnInfo(name = "poster_path") var posterPath: String,
-    @ColumnInfo(name = "runtime") var runtime: Int,
-    @ColumnInfo(name = "title") var title: String,
-    @ColumnInfo(name = "vote_average") var voteAverage: Float,
-    @ColumnInfo(name = "vote_count") var voteCount: Int,
-    @ColumnInfo(name = "ratings") var ratings: Float,
-    @ColumnInfo(name = "brand_id") var numberOfRatings: Int,
+    @PrimaryKey
+    @ColumnInfo(name = "movie_id") var movieId: Int? = null,
+    @ColumnInfo(name = "minimum_age") var minimumAge: Int? = null,
+    @ColumnInfo(name = "backdrop_path") var backdropPath: String? = null,
+    @ColumnInfo(name = "overview") var overview: String? = null,
+    @ColumnInfo(name = "poster_path") var posterPath: String? = null,
+    @ColumnInfo(name = "runtime") var runtime: Int? = null,
+    @ColumnInfo(name = "title") var title: String? = null,
+    @ColumnInfo(name = "vote_average") var voteAverage: Float? = null,
+    @ColumnInfo(name = "vote_count") var voteCount: Int? = null,
+    @ColumnInfo(name = "ratings") var ratings: Float? = null
 )
