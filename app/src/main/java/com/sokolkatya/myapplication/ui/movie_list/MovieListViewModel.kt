@@ -91,7 +91,7 @@ class MovieListViewModel(
         moviesState.postValue(
             transformMovies(
                 appDAO.getMovies(),
-                appDAO.getMovieGenres()
+                appDAO.getMoviesGenres()
             )
         )
     }
