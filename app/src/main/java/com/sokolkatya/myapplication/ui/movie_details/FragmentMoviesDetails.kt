@@ -3,6 +3,7 @@ package com.sokolkatya.myapplication.ui.movie_details
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
@@ -30,8 +31,16 @@ class FragmentMoviesDetails : Fragment(R.layout.fragment_movies_details) {
     private lateinit var ivPicture: ImageView
     private lateinit var rbMovieRating: RatingBar
     private lateinit var rvActors: RecyclerView
+    private lateinit var flProgress: FrameLayout
 
     private lateinit var adapter: ActorAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        viewModel = MovieDetailsViewModel(requireContext())
+        viewModel.getMovieFromDb(movieId)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -52,6 +61,7 @@ class FragmentMoviesDetails : Fragment(R.layout.fragment_movies_details) {
         tvReviews = view.findViewById(R.id.tv_movie_review)
         tvStoryline = view.findViewById(R.id.tv_movie_storyline)
         tvCastTitle = view.findViewById(R.id.tv_movie_cast_title)
+        flProgress = view.findViewById(R.id.fl_progress)
     }
 
     private fun setListeners() {
@@ -61,7 +71,6 @@ class FragmentMoviesDetails : Fragment(R.layout.fragment_movies_details) {
     }
 
     private fun init() {
-        viewModel = MovieDetailsViewModel()
         adapter = ActorAdapter()
         rvActors.apply {
             adapter = this@FragmentMoviesDetails.adapter
@@ -80,6 +89,7 @@ class FragmentMoviesDetails : Fragment(R.layout.fragment_movies_details) {
             })
         }
         viewModel.movie.observe(this.viewLifecycleOwner, this::setData)
+        viewModel.progress.observe(this.viewLifecycleOwner, this::setProgressVisibility)
         viewModel.getMovieDetails(movieId)
     }
 
@@ -105,6 +115,10 @@ class FragmentMoviesDetails : Fragment(R.layout.fragment_movies_details) {
             rvActors.visibility = View.VISIBLE
             adapter.setData(movie.actors)
         }
+    }
+
+    fun setProgressVisibility(show: Boolean) {
+        flProgress.visibility = if (show) View.VISIBLE else View.GONE
     }
 
     override fun onDestroyView() {

@@ -21,6 +21,13 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list),
 
     private var listener: MovieClickListener? = null
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        viewModel = MovieListViewModel(requireContext())
+        viewModel.getMoviesFromDb()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -33,7 +40,6 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list),
     }
 
     private fun init() {
-        viewModel = MovieListViewModel()
         adapter = MovieAdapter(this)
         rvMovies.apply {
             adapter = this@FragmentMoviesList.adapter

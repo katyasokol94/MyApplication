@@ -178,6 +178,23 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_movie_cast_title"
             app:layout_constraintVertical_bias="0" />
 
+        <FrameLayout
+            android:id="@+id/fl_progress"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/black_russian_alpha_90"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/radical_red" />
+        </FrameLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

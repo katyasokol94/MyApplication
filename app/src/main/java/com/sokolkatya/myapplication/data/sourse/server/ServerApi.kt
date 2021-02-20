@@ -1,9 +1,9 @@
 package com.sokolkatya.myapplication.data.sourse.server
 
-import com.sokolkatya.myapplication.data.entities.Config
-import com.sokolkatya.myapplication.data.entities.GenreList
-import com.sokolkatya.myapplication.data.entities.MovieDetails
-import com.sokolkatya.myapplication.data.entities.Popular
+import com.sokolkatya.myapplication.data.entities.api.Config
+import com.sokolkatya.myapplication.data.entities.api.GenreList
+import com.sokolkatya.myapplication.data.entities.api.MovieDetails
+import com.sokolkatya.myapplication.data.entities.api.Popular
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
