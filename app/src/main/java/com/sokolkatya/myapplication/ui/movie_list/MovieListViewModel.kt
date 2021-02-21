@@ -6,11 +6,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.WorkManager
 import com.sokolkatya.myapplication.data.entities.api.Genre
 import com.sokolkatya.myapplication.data.entities.api.Result
 import com.sokolkatya.myapplication.data.mapper.transformGenres
 import com.sokolkatya.myapplication.data.mapper.transformMovies
 import com.sokolkatya.myapplication.data.repository.MovieRepository
+import com.sokolkatya.myapplication.data.repository.WorkRepository
 import com.sokolkatya.myapplication.data.sourse.database.AppDatabase
 import com.sokolkatya.myapplication.ui.entities.MovieItem
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -25,6 +27,7 @@ class MovieListViewModel(
 
     private val movieRepository: MovieRepository = MovieRepository()
     private val appDAO = AppDatabase.getDatabase(appContext).appDAO()
+    private val workRepository: WorkRepository = WorkRepository()
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
 
@@ -36,6 +39,11 @@ class MovieListViewModel(
 
     private val genres: MutableMap<Int, Genre> = mutableMapOf()
     private var imageUrl: String? = null
+
+    init {
+        WorkManager.getInstance(appContext)
+                .enqueue(workRepository.loadDataRequest)
+    }
 
     fun getMovies() {
         viewModelScope.launch(exceptionHandler) {
